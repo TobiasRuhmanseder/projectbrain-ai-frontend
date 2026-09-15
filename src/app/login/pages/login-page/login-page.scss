@@ -1,0 +1,23 @@
+:host {
+  display: block;
+}
+
+.login-page {
+  min-height: 100dvh;
+  background: var(--pb-bg);
+  color: var(--pb-ink);
+  font-family: var(--pb-font-sans);
+  transition:
+    background 160ms ease,
+    color 160ms ease;
+
+  .stage {
+    min-height: 100dvh;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
