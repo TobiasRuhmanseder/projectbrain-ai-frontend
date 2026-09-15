@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+@use './styles/fonts';
+@use './styles/tweaks';
+@use './styles/icons';
+@use './styles/typography';
+@use './styles/buttons';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--pb-bg, #fafaf7);
+  color: var(--pb-ink, #18181b);
+  font-family: var(--pb-font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
