@@ -1,0 +1,57 @@
+[
+  {
+    "code": "P1",
+    "knowledge": 18,
+    "members": ["AT", "MR", "JK", "LP", "SA"],
+    "name": "Mobile App Relaunch",
+    "progress": 46,
+    "status": "In Progress",
+    "summary": "Modernize the iOS & Android apps. Ship the new onboarding by Q3.",
+    "tasksDone": 11,
+    "tasksTotal": 24
+  },
+  {
+    "code": "P2",
+    "knowledge": 7,
+    "members": ["SA", "LP", "JK"],
+    "name": "Onboarding Revamp",
+    "progress": 18,
+    "status": "Planning",
+    "summary": "Reduce day-1 drop-off. Rework the first three sessions end-to-end.",
+    "tasksDone": 2,
+    "tasksTotal": 12
+  },
+  {
+    "code": "P3",
+    "knowledge": 11,
+    "members": ["MR", "AT", "JK", "SA"],
+    "name": "Pricing Page V2",
+    "progress": 67,
+    "status": "In Progress",
+    "summary": "New positioning, clearer plans, calculator for self-serve.",
+    "tasksDone": 6,
+    "tasksTotal": 9
+  },
+  {
+    "code": "P4",
+    "knowledge": 24,
+    "members": ["SA", "LP"],
+    "name": "Customer Research",
+    "progress": 22,
+    "status": "On Hold",
+    "summary": "Synthesize 12 interviews from EU mid-market into clear themes.",
+    "tasksDone": 1,
+    "tasksTotal": 5
+  },
+  {
+    "code": "P5",
+    "knowledge": 5,
+    "members": ["JK", "MR", "AT"],
+    "name": "Internal Tooling",
+    "progress": 53,
+    "status": "In Progress",
+    "summary": "Replace the spreadsheets ops uses for handoffs and approvals.",
+    "tasksDone": 9,
+    "tasksTotal": 17
+  }
+]

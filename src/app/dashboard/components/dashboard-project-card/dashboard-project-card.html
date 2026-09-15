@@ -1,0 +1,47 @@
+<article class="card" role="button" tabindex="0">
+  <div class="card-head">
+    <div>
+      <div class="card-eyebrow">
+        <span class="dot" aria-hidden="true"></span>
+        {{ project.code }} · {{ project.members.length }} members
+      </div>
+      <h3 class="card-name">{{ project.name }}</h3>
+      <p class="card-desc">{{ project.summary }}</p>
+    </div>
+    <span
+      class="badge"
+      [class.ok]="project.status === 'In Progress'"
+      [class.warn]="project.status === 'Planning'"
+      [class.hold]="project.status === 'On Hold'"
+    >
+      <span class="dot" aria-hidden="true"></span>
+      {{ project.status }}
+    </span>
+  </div>
+
+  <div>
+    <div class="meters">
+      <span class="meter"
+        ><b>{{ project.tasksDone }}</b
+        >/{{ project.tasksTotal }} tasks</span
+      >
+      <span class="meter">{{ project.progress }}%</span>
+    </div>
+
+    <div class="progress" aria-label="Project progress">
+      <span [style.width.%]="project.progress"></span>
+    </div>
+  </div>
+
+  <div class="card-foot">
+    <div class="avatars" aria-label="Project members">
+      @for (member of project.members.slice(0, 4); track member) {
+        <span>{{ member }}</span>
+      }
+      @if (project.members.length > 4) {
+        <small>+{{ project.members.length - 4 }}</small>
+      }
+    </div>
+    <span class="meter">{{ project.knowledge }} notes</span>
+  </div>
+</article>

@@ -1,0 +1,53 @@
+<main class="dashboard-page app view">
+  <app-topbar />
+
+  <section class="page">
+    <header class="page-head">
+      <div>
+        <h1 class="h-greet">Good morning, Tobias <i>-</i></h1>
+        <p>You're in <b>Demo Company A</b>. {{ visibleProjects().length }} projects in focus.</p>
+      </div>
+      <div class="head-actions">
+        @for (action of actions; track action.label) {
+          <button type="button" class="pb-button" [class.pb-button--primary]="action.primary">
+            @if (action.primary) {
+              <mat-icon fontSet="material-symbols-rounded" aria-hidden="true">add</mat-icon>
+            }
+            {{ action.label }}
+          </button>
+        }
+      </div>
+    </header>
+
+    <div class="section-bar">
+      <div class="filters" aria-label="Project filters">
+        @for (filter of filters(); track filter.label) {
+          <button
+            type="button"
+            class="chip"
+            [attr.aria-pressed]="selectedFilter() === filter.label"
+            (click)="setFilter(filter.label)"
+          >
+            {{ filter.label }}
+            <span class="count">{{ filter.count }}</span>
+          </button>
+        }
+      </div>
+      <span class="section-meta">Updated 2m ago</span>
+    </div>
+
+    <section class="grid" aria-label="Project overview">
+      @for (project of visibleProjects(); track project.code) {
+        <app-dashboard-project-card [project]="project" />
+      }
+
+      <button type="button" class="create-card">
+        <span class="create-icon" aria-hidden="true">
+          <mat-icon fontSet="material-symbols-rounded">add</mat-icon>
+        </span>
+        <strong>{{ newProjectCard.label }}</strong>
+        <span>{{ newProjectCard.subLabel }}</span>
+      </button>
+    </section>
+  </section>
+</main>
