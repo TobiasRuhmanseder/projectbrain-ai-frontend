@@ -1,12 +1,19 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { DesignTweaksService } from './core/services/design-tweaks.service';
+import { TweaksPanel } from './layout/tweaks-panel/tweaks-panel';
 
 @Component({
-  imports: [RouterOutlet],
+  host: {
+    '[attr.data-accent]': 'designTweaks.accent()',
+    '[attr.data-theme]': 'designTweaks.theme()',
+    '[attr.data-type]': 'designTweaks.type()',
+  },
+  imports: [RouterOutlet, TweaksPanel],
   selector: 'app-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('projectbrain-ai-frontend');
+  readonly designTweaks = inject(DesignTweaksService);
 }

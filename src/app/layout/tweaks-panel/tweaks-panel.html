@@ -1,0 +1,78 @@
+@if (!open()) {
+  <button
+    type="button"
+    class="pb-button pb-button--icon trigger"
+    aria-controls="tweaks-panel"
+    aria-label="Open design tweaks"
+    aria-expanded="false"
+    (click)="toggle()"
+  >
+    <mat-icon fontSet="material-symbols-rounded" aria-hidden="true">design_services</mat-icon>
+  </button>
+}
+
+@if (open()) {
+  <aside id="tweaks-panel" class="tweaks-panel" aria-label="Design tweaks">
+    <header class="header">
+      <h2>TWEAKS</h2>
+      <button
+        type="button"
+        class="pb-button pb-button--icon close-button"
+        aria-label="Close tweaks"
+        (click)="close()"
+      >
+        <mat-icon fontSet="material-symbols-rounded" aria-hidden="true">close</mat-icon>
+      </button>
+    </header>
+
+    <div class="body">
+      <section class="section" aria-labelledby="tweak-theme">
+        <h3 id="tweak-theme">THEME</h3>
+        <div class="options">
+          @for (option of themes; track option) {
+            <button
+              type="button"
+              class="option"
+              [attr.aria-pressed]="designTweaks.theme() === option"
+              (click)="designTweaks.setTheme(option)"
+            >
+              {{ option }}
+            </button>
+          }
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="tweak-accent">
+        <h3 id="tweak-accent">ACCENT</h3>
+        <div class="swatches">
+          @for (option of accents; track option.value) {
+            <button
+              type="button"
+              class="swatch"
+              [attr.aria-label]="option.label"
+              [attr.aria-pressed]="designTweaks.accent() === option.value"
+              [style.--swatch-color]="option.color"
+              (click)="designTweaks.setAccent(option.value)"
+            ></button>
+          }
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="tweak-type">
+        <h3 id="tweak-type">TYPE</h3>
+        <div class="options">
+          @for (option of types; track option.value) {
+            <button
+              type="button"
+              class="option"
+              [attr.aria-pressed]="designTweaks.type() === option.value"
+              (click)="designTweaks.setType(option.value)"
+            >
+              {{ option.label }}
+            </button>
+          }
+        </div>
+      </section>
+    </div>
+  </aside>
+}
